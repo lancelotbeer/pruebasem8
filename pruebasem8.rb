@@ -82,20 +82,28 @@ case user_option
     redo
 when 3
 		puts "ALUMNOS APROBADOS"
+
+
     file = File.open('alumnos.csv','r')
     prom_alum = file.readlines.map{ |x| x.split(', ').map(&:chomp)}
     file.close
+
+		puts 'ingrese nota de aprobacion'
+		nota_eva = gets.chomp.to_i
 		puts "-----------------------"
 		puts "Promedio de David"
     suma = prom_alum[0].inject(0){|sum, a| sum + a.to_i}
     divisor = prom_alum[0].length - 1
     promedio1 = suma / divisor
     puts "David esta :"
-    if promedio1 >=  5
-    puts "aprobado"
-    else
-    puts "reprobado"
-    puts "Promedio : #{promedio1}"
+		if promedio1 >=  nota_eva
+			puts "aprobado"
+			puts "Promedio : #{promedio1}"
+	    else
+	    puts "reprobado"
+	    puts "Promedio : #{promedio1}"
+			end
+
 
 		puts "-----------------------"
 		puts "Promedio de Gonzalo"
@@ -103,8 +111,9 @@ when 3
     divisor = prom_alum[1].length - 1
     promedio2 = suma / divisor
     puts "Gonzalo esta :"
-    if promedio2 >=  5
+    if promedio2 >= nota_eva
     puts "aprobado"
+		puts "Promedio : #{promedio2}"
     else
     puts "reprobado"
     puts "Promedio : #{promedio2}"
@@ -116,7 +125,7 @@ when 3
     divisor = prom_alum[2].length - 1
     promedio3 = suma / divisor
     puts "Mai esta :"
-    if promedio3 >=  5
+    if promedio3 >=  nota_eva
     puts "aprobado"
 		puts "Promedio : #{promedio3}"
     else
@@ -130,21 +139,21 @@ when 3
     divisor = prom_alum[3].length - 1
     promedio4 = suma / divisor
     puts "JP esta :"
-    if promedio4 >=  5
+    if promedio4 >=  nota_eva
     puts "aprobado"
 		puts "Promedio : #{promedio4}"
     else
     puts "reprobado"
+		end
 
-  	end
-end
+
 when 4
 
   puts "******************"
   puts "Salio del programa"
   puts "   hasta luego"
   puts "******************"
-  break
-else puts "***INGRESE UNA OPCION DEL MENU***"
-end
+  	break
+	else puts "***INGRESE UNA OPCION DEL MENU***"
+	end
 end
