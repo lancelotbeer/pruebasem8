@@ -1,0 +1,6 @@
+PROMEDIO DE ALUMNOS------------------------------------
+El promedio de david : 3
+El promdio de gonzalo es : 4
+El promedio de mai es : 7
+El promedio de JP es : 10
+------------------------------------

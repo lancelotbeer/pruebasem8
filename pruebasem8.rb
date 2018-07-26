@@ -19,13 +19,15 @@ case user_option
   prom_alum = file.readlines.map{ |x| x.split(', ').map(&:chomp)}
   file.close
 
+	promedio = File.open('promedio.txt','w')
+
   suma = prom_alum[0].inject(0){|sum, a| sum + a.to_i}
   divisor = prom_alum[0].length - 1
   promedio1 = suma / divisor
 
-  puts "PROMEDIO DE ALUMNOS"
-  puts "------------------------------------"
-  puts "El promedio de david : #{promedio1}"
+  promedio.puts "PROMEDIO DE ALUMNOS"
+  promedio.puts "------------------------------------"
+  promedio.puts "El promedio de david : #{promedio1}"
 
 
   file = File.open('alumnos.csv','r')
@@ -35,7 +37,7 @@ case user_option
   suma = prom_alum[1].inject(0){|sum, a| sum + a.to_i}
   divisor = prom_alum[1].length - 1
   promedio2 = suma / divisor
-  puts "El promdio de gonzalo es : #{promedio2}"
+  promedio.puts "El promdio de gonzalo es : #{promedio2}"
 
 
   file = File.open('alumnos.csv','r')
@@ -45,7 +47,7 @@ case user_option
   suma = prom_alum[2].inject(0){|sum, a| sum + a.to_i}
   divisor = prom_alum[2].length - 1
   promedio3 = suma / divisor
-  puts "El promedio de mai es : #{promedio3}"
+  promedio.puts "El promedio de mai es : #{promedio3}"
 
 
   file = File.open('alumnos.csv','r')
@@ -55,8 +57,9 @@ case user_option
   suma = prom_alum[3].inject(0){|sum, a| sum + a.to_i}
   divisor = prom_alum[3].length - 1
   promedio4 = suma / divisor
-  puts "El promedio de JP es : #{promedio4}"
-  puts "------------------------------------"
+  promedio.puts "El promedio de JP es : #{promedio4}"
+  promedio.puts "------------------------------------"
+	promedio.close
 
 
     redo
@@ -130,6 +133,7 @@ when 3
 		puts "Promedio : #{promedio3}"
     else
     puts "reprobado"
+		puts "Promedio : #{promedio3}"
 
 	  end
 
